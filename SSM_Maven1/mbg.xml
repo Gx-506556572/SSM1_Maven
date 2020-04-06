@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC
+        "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!--https://mybatis.org/generator/quickstart.html#MyBatis3-->
+<context id =" DB2Tables" targetRuntime ="MyBatis3">
+    <property name="javaFileEncoding" value="UTF-8"/>
+    <commentGenerator>
+        <property name="suppressAllComments" value="true"/>
+    </commentGenerator>
+    <!--数据库连接-->
+<jdbcConnection
+        driverClass ="com.mysql.cj.jdbc.Driver"
+        connectionURL ="jdbc:mysql://localhost:3306/ssm1_crud?serverTimezone=GMT%2B8"
+        userId="root"
+        password="root"/>
+<!--指定实体类生成位置-->
+<javaModelGenerator targetPackage ="com.bean" targetProject ="D:\Java\MavenDeamo\src\main\java"/>
+<!--sql映射文件指定位置-->
+    <sqlMapGenerator targetPackage ="mapper" targetProject ="D:\Java\MavenDeamo\src\main\resources" >
+        <property name="enableSubPackages" value="true"/>
+       </sqlMapGenerator>
+<!--Dao接口生成位置,mapper接口-->
+    <javaClientGenerator type ="XMLMAPPER" targetPackage ="com.dao" targetProject ="D:\Java\MavenDeamo\src\main\java" >
+        <property name="enableSubPackages" value="true"/>
+            </javaClientGenerator>
+<!--table 指定每个表的生成-->
+    <table tableName="tbl_emp" domainObjectName="Employee"></table>
+    <table tableName="tbl_dept" domainObjectName="Dept"></table>
+
+</context>
+</generatorConfiguration>
